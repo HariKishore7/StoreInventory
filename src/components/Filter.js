@@ -27,6 +27,7 @@ function Filter({updateFilters}) {
              if(!price.includes(item.price)){
                 price.push( item.price)
              }
+             
              if(!type.includes(item.type)){
                 type.push( item.type)
              }    

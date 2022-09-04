@@ -1,6 +1,7 @@
 import { createContext, useContext, useState } from 'react';
 import { ShoppingCart } from '../components/ShoppingCart';
 import { useLocalStorage } from '../hooks/useLocalStorage';
+import storeItems from "../data/items.json"
 
 const ShoppingCartContext = createContext({});
 
@@ -22,6 +23,9 @@ export function ShoppingCartProvider({ children }) {
   function getItemQuantity(id) {
     return cartItems.find((item) => item.id === id)?.quantity || 0;
   }
+  function getQuantity(id) {
+    return storeItems.find((item) => item.id === id)?.quantity || 0;
+  }
   function increaseCartQuantity(id) {
     setCartItems((currItems) => {
       if (currItems.find((item) => item.id === id) == null) {
@@ -29,7 +33,14 @@ export function ShoppingCartProvider({ children }) {
       } else {
         return currItems.map((item) => {
           if (item.id === id) {
-            return { ...item, quantity: item.quantity + 1 };
+            const incQnt = item.quantity + 1
+            if(incQnt<=getQuantity(id)){
+              return { ...item, quantity: incQnt};
+            }
+            else{
+              alert("Item is not available")
+              return item;
+            }
           } else {
             return item;
           }

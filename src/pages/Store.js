@@ -48,7 +48,7 @@ export function Store() {
             break;
           case 'price':
             // console.log('price')
-            setFilterProducts(products.filter(product => product.price === filter.value))
+            setFilterProducts(products.filter(product => product.price == filter.value))
             break;
           case 'type':
             setFilterProducts(products.filter(product => product.type === filter.value))

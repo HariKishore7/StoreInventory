@@ -2,15 +2,12 @@ import React from 'react'
 import { Col} from 'react-bootstrap';
 
 function FilterItem({items, name, updateFilters}) {
-// console.log(items)
 
 const filterList=(e)=>{
-//  console.log(e); 
     updateFilters(e.target.value, e.target.name, e.target.checked);
 }
 
-
-  return (
+return (
     <>
         {
          items.map((col,i)=>{
