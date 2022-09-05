@@ -1,70 +1,42 @@
-# Getting Started with Create React App
+This is a Dynamic Rendering Project, where the data will be dynamically rendered on the UI using JSON file.
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+To run this file please clone the repository "https://github.com/HariKishore7/StoreInventory.git" from GitHub or else please un-Zip the folder.
 
-## Available Scripts
+Please follow the below steps to run the project in your system.
 
-In the project directory, you can run:
+STEP 1: Please type in terminal by entering into the folder like: npm install
 
-### `npm start`
+PS E:\StoreInventory> npm install
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+npm install will install all the dependencies which are present in the package.json to run the project in your system.
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+STEP 2: Once all the dependencies are installed, type "npm start" like below
 
-### `npm test`
+PS E:\StoreInventory> npm start
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+npm start will run the project on the server, by default it will run on "http://localhost:3000/"
 
-### `npm run build`
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+Project Expalnation:
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+On the page rendering it will render all the data from the JSON data.
 
-### `npm run eject`
+We can search the product as per the name of the product, ex: black polo or polo.
+If we search "Black polo" the products named black polo will render the cards which are only black polo.
+If we search "polo" the products named polo will render all the cards which are having name as polo.
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+The checkboxes can be used to filter the prodct based on the colour, gender, price, type.
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+If we checkbox colour as black, it will show all the products which are black, if we check Men, it will render all Men products, likewise for price and type.
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+We can add the products to the "CART" by clicking on the "Add to cart". we can select the same product till the quantity level. 
 
-## Learn More
+Every product is having some quantity, for example "blue polo" is having a quantity of 3, so user can add the quantity till 3, after that if he tries to add for the 4th time, the alert will pop-up saying "Item is not available", as the quantity of items are sold. Likewise for each and every item there is a quantity, if the user selects more than that quantity it will pop-up an alert.
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+If the user deselects it the item count will reduce back to the quantity. If he clciks on "Remove" button the item will be reset to the previous quantity.
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+Whenever the user is clicking on "Add to cart" or "+" to add the item to cart, the navbar is having a cart logo, it will render how many items are there in the cart.
 
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+If we click on the cart logo, it will show all the items that are added in the quantity as well as the price of all the items in the cart.
