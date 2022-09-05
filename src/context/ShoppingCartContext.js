@@ -1,7 +1,7 @@
-import { createContext, useContext, useState } from 'react';
-import { ShoppingCart } from '../components/ShoppingCart';
-import { useLocalStorage } from '../hooks/useLocalStorage';
-import storeItems from "../data/items.json"
+import { createContext, useContext, useState } from "react";
+import { ShoppingCart } from "../components/ShoppingCart";
+import { useLocalStorage } from "../hooks/useLocalStorage";
+import storeItems from "../data/items.json";
 
 const ShoppingCartContext = createContext({});
 
@@ -11,7 +11,7 @@ export function useShoppingCart() {
 
 export function ShoppingCartProvider({ children }) {
   const [isOpen, setIsOpen] = useState(false);
-  const [cartItems, setCartItems] = useLocalStorage('shopping-cart',[]);
+  const [cartItems, setCartItems] = useLocalStorage("shopping-cart", []);
 
   const cartQuantity = cartItems.reduce(
     (quantity, item) => item.quantity + quantity,
@@ -20,12 +20,15 @@ export function ShoppingCartProvider({ children }) {
 
   const openCart = () => setIsOpen(true);
   const closeCart = () => setIsOpen(false);
+
   function getItemQuantity(id) {
     return cartItems.find((item) => item.id === id)?.quantity || 0;
   }
+
   function getQuantity(id) {
     return storeItems.find((item) => item.id === id)?.quantity || 0;
   }
+
   function increaseCartQuantity(id) {
     setCartItems((currItems) => {
       if (currItems.find((item) => item.id === id) == null) {
@@ -33,12 +36,11 @@ export function ShoppingCartProvider({ children }) {
       } else {
         return currItems.map((item) => {
           if (item.id === id) {
-            const incQnt = item.quantity + 1
-            if(incQnt<=getQuantity(id)){
-              return { ...item, quantity: incQnt};
-            }
-            else{
-              alert("Item is not available")
+            const incQnt = item.quantity + 1;
+            if (incQnt <= getQuantity(id)) {
+              return { ...item, quantity: incQnt };
+            } else {
+              alert("Item is not available");
               return item;
             }
           } else {
@@ -48,6 +50,7 @@ export function ShoppingCartProvider({ children }) {
       }
     });
   }
+
   function decreaseCartQuantity(id) {
     setCartItems((currItems) => {
       if (currItems.find((item) => item.id === id)?.quantity === 1) {
@@ -80,7 +83,8 @@ export function ShoppingCartProvider({ children }) {
         closeCart,
         cartItems,
         cartQuantity,
-      }}>
+      }}
+    >
       {children}
       <ShoppingCart isOpen={isOpen} />
     </ShoppingCartContext.Provider>

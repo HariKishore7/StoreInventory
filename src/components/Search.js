@@ -1,17 +1,16 @@
-import React from 'react';
-// import './search-box.css';
+import React from "react";
 
-function Search({onChangeHandler}) {
+function Search({ onChangeHandler }) {
   return (
-      <div className='mb-2'>
-        <input
-          className='form-control'
-          type='search'
-          placeholder='Search for Product'
-          onChange={onChangeHandler}
-        />
-      </div>
-  )
+    <div className="mb-2">
+      <input
+        className="form-control"
+        type="search"
+        placeholder="Search for Product"
+        onChange={onChangeHandler}
+      />
+    </div>
+  );
 }
 
 export default Search;
